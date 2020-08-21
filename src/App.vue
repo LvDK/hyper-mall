@@ -2,7 +2,7 @@
   <div id="app">
 <!--    <img src="./assets/logo.png">-->
     <router-view/>
-    <FooterGuide v-show="$route.meta.showFooter"/>
+    <FooterGuide  v-show="$route.meta.showFooter"/>
   </div>
 </template>
 
