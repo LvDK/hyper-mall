@@ -22,11 +22,12 @@ export default function ajax(url ,data = {},type = 'GET') {
         dataStr = dataStr.substring(0,dataStr.length - 1)
         url = url + '?' + dataStr
       }
-
+      // axios.defaults.headers.
       promise = axios.get(url)
     } else {
       // post请求
-      promise = axios.post(url,data)
+      // alert('token: ' + state.token)
+      promise = axios.post(url, data)
     }
     promise.then(function (response) {
       // 执行成功

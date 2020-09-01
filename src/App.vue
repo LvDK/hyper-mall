@@ -8,11 +8,25 @@
 
 <script>
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+import {mapActions} from 'vuex'
+import {login} from './api'
+
 
 export default {
   name: 'App',
   components: {
     FooterGuide
+  },
+  async mounted () {
+
+    const result = this.login('admin','1')
+    // const result = await login()
+    console.log(result)
+    // this.$store.dispatch('getUserList')
+  },
+  methods: {
+    // 函数映射
+    ...mapActions(['login','getAddress'])
   }
 }
 </script>

@@ -19,3 +19,8 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+# start
+npm install swiper swiper@3.4.2 --save-dev
+npm install axios -s

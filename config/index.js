@@ -10,7 +10,19 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // 匹配所有以api开头的路径
+      '/emer': {
+        // 代理目标的基础路径
+        target: 'http://58.58.234.234:8080',
+        //支持跨域
+        changeOrigin: true,
+        // 路径重写
+        pathRewrite: {
+          '^emer': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
