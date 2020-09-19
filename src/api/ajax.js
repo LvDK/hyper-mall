@@ -1,5 +1,6 @@
 
 import axios from 'axios'
+import state from '../store/state'
 
 /**
  * ajax函数封装处理
@@ -11,6 +12,7 @@ import axios from 'axios'
 export default function ajax(url ,data = {},type = 'GET') {
 
   return new Promise(function (resolve, reject) {
+    alert('token: ' + url + JSON.stringify(state.token))
     let promise
     if (type === 'GET') {
       // get请求  拼接url
@@ -23,11 +25,19 @@ export default function ajax(url ,data = {},type = 'GET') {
         url = url + '?' + dataStr
       }
       // axios.defaults.headers.
-      promise = axios.get(url)
+      promise = axios.get(url,{
+        headers: {
+          "token": state.token  //token换成从缓存获取
+        }
+      })
     } else {
       // post请求
-      // alert('token: ' + state.token)
-      promise = axios.post(url, data)
+      promise = axios.post(url, data,{
+        headers: {
+          'content-type': 'application/json',
+          "token": state.token  //token换成从缓存获取
+        }
+      })
     }
     promise.then(function (response) {
       // 执行成功

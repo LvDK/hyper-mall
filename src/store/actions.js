@@ -11,11 +11,12 @@ export default {
     // 发送异步ajax请求
     const result = await login(state.userName,state.passWord)
     // 提交一个mutation
-    console.log(result)
+    // console.log(result)
 
     if (result.code === 200) {
       const userInfo = result.result
       const token = result.token
+      alert(token)
       commit(RECEIVE_TOKEN, {token})
       commit(RECEIVE_USERINFO, {userInfo})
     }
@@ -25,6 +26,7 @@ export default {
 
     // 发送异步ajax请求
     const result = await getUserList()
+    alert("getUserList")
     // 提交一个mutation
     if (result.code === 200) {
       const userList = result.result

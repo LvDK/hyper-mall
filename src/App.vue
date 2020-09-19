@@ -17,12 +17,14 @@ export default {
   components: {
     FooterGuide
   },
-  async mounted () {
-
-    const result = this.login('admin','1')
+  beforeCreate () {
+    this.$store.dispatch('login','admin')
+  },
+  mounted () {
+    // const result = this.login('admin','1')
     // const result = await login()
-    console.log(result)
-    // this.$store.dispatch('getUserList')
+    // console.log(result)
+    this.$store.dispatch('getUserList')
   },
   methods: {
     // 函数映射
@@ -37,7 +39,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #d71e7e;
   margin-top: 60px;
 }
 
