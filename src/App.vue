@@ -42,5 +42,5 @@ export default {
 }
 
 .app
-  color: red
+  background-color: #673797
 </style>

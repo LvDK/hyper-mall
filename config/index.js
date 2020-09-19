@@ -14,7 +14,7 @@ module.exports = {
       // 匹配所有以api开头的路径
       '/emer': {
         // 代理目标的基础路径
-        target: 'http://58.58.234.234:8080',
+        target: 'http://58.58.234.234:8081',
         //支持跨域
         changeOrigin: true,
         // 路径重写

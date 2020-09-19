@@ -1,5 +1,5 @@
 import {RECEIVE_TOKEN,RECEIVE_USERINFO,RECEIVE_USERLIST,RECEIVE_ADDRESS, RECEIVE_CATEGORYS, RECEIVE_SHOPS} from './mutations-types'
-import {login,getUserList,reqAddress, reqFoodCategorys, reqShops} from '../api/index'
+import {login, getUserList, reqAddress, reqFoodCategorys, reqShops} from '../api/index'
 
 
 /**
@@ -22,9 +22,8 @@ export default {
   },
 
   async getUserList({commit}) {
-    // alert(state.token)
-    // 发送异步ajax请求
 
+    // 发送异步ajax请求
     const result = await getUserList()
     // 提交一个mutation
     if (result.code === 200) {

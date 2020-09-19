@@ -12,8 +12,9 @@
     </HeardTop>
     <!--首页导航-->
     <div class="msite_nav">
-      <div class="swiper-container" v-if="userList.length > 0">
-        <div class="swiper-wrapper">
+      <div class="swiper-container">
+
+        <div class="swiper-wrapper" v-if="userList.userList.length > 0">
           <div class="swiper-slide" v-for="(userArray,index) in userListMethod" :key="index">
             <a href="javascript:" class="link_to_food"  v-for="(user,index) in userArray" :key="index">
               <div class="food_container">
@@ -62,6 +63,7 @@ export default {
     }
   },
   mounted () {
+    // 数据初始化执行方法
     this.$store.dispatch('getUserList')
   },
 
@@ -87,20 +89,23 @@ export default {
   },
 
   computed: {
-    ...mapState(['userInfo','address','token','userList']),
+    // 从state中获取数据
+    ...mapState(['userInfo', 'address', 'token', 'userList']),
 
     userListMethod() {
+      // alert(1)
       const {userList} = this
+      const data = userList.userList
       // alert('userList :' + JSON.stringify(userList))
-      if (userList.length === 0) {
+      if (data.length === 0) {
         return []
       }
-
+      // alert(JSON.stringify(data.length))
       const array = []
-      if (userList.length < 16) {
-        for (let i = 0; i < 16 ;i ++) {
+      if (data.length < 16) {
+        for (let i = 0; i < 16; i++) {
           // alert(i)
-          array.push(userList[0])
+          array.push(data[0])
         }
       }
       // alert(JSON.stringify(array))
